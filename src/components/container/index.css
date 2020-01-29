@@ -1,0 +1,11 @@
+.container{
+	width: 500px;
+    margin: auto;
+    text-align: center;
+    padding-top: 10%;
+}
+.color{
+	background-color: #dfe6ed;
+    border: 4px solid #cbd0d4;
+    padding: 50px;
+}
