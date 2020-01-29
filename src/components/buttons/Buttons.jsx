@@ -1,4 +1,5 @@
 import React from 'react'
+import ErrorBanner from '../error/ErrorBanner'
 import './index.css'
 
 export default class Buttons extends React.Component{
@@ -7,7 +8,8 @@ export default class Buttons extends React.Component{
 		super()
 		this.state = {
 			zip_one: '',
-			zip_two: ''
+			zip_two: '',
+			invalid: false
 		}
 	}
 
@@ -19,7 +21,35 @@ export default class Buttons extends React.Component{
 
 	submit = (e) => {
 		e.preventDefault()
-		this.props.getZips([this.state.zip_one, this.state.zip_two])
+		if(this.validate(this.state.zip_one, this.state.zip_two)){
+			this.props.getZips([this.state.zip_one, this.state.zip_two])
+			this.setState({
+				...this.state,
+				invalid: false
+			})
+		}else{
+			this.setState({
+				...this.state,
+				invalid: true
+			})
+		}
+	}
+
+	validate = (a,b) => {
+		let rx = /\D/
+		//check if a || b is all numbers
+		if(rx.test(a) || rx.test(b)){
+			return false
+		}
+		//ckeck if a || b is 5 numbers
+		else if(a.length < 5 || 
+				a.length > 5 || 
+				b.length < 5 || 
+				b.length > 5 ){
+			return false
+		}
+		// return true if tests pass
+		return true
 	}
 
 	render(){
@@ -47,6 +77,9 @@ export default class Buttons extends React.Component{
 				onClick={e=> this.submit(e)} 
 				className='btn'
 				>Submit</button>
+
+				{this.state.invalid &&
+					<ErrorBanner error={1}/>}
 			</div>
 			)
 	}

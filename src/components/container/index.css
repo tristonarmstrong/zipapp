@@ -9,3 +9,16 @@
     border: 4px solid #cbd0d4;
     padding: 50px;
 }
+
+@media(max-width: 500px){
+	.container{
+	text-align: center;
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    height: 500px;
+	}
+	.color{
+	padding: 25px;
+	}
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class Display extends React.Component{
 	componentWillReceiveProps(newProps){
-		if(newProps.city1){ // if second city prop has been received
+		if(newProps.city0 && newProps.city1){ // if second city prop has been received
 			this.CalculateDistance(
 			newProps.city0.Lat, 
 			newProps.city0.Long, 
@@ -65,6 +65,7 @@ export default class Display extends React.Component{
 					<div>
 					<h1>{`${this.state.distance.toFixed(2)}mi`}</h1>
 					<h3>{`${this.props.city0.City} and ${this.props.city1.City} are ${this.state.distance.toFixed(2)}mi apart`}</h3>
+					<p>As the crow flies</p>
 					</div>
 				}
 
