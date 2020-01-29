@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 
 export default class Buttons extends React.Component{
 
@@ -24,23 +25,28 @@ export default class Buttons extends React.Component{
 	render(){
 		return(
 			<div>
-				<div>
+				<div className='inp_cont'>
 					<input 
 					name='zip_one' 
 					type='text' 
 					placeholder='zip one' 
 					onChange={(e) => this.handleChanges(e)}
-					value={this.state.zip_one}/>
+					value={this.state.zip_one}
+					className='inp'/>
+
 					<input 
 					name='zip_two' 
 					type='text' 
 					placeholder='zip two' 
 					onChange={(e) => this.handleChanges(e)}
-					value={this.state.zip_two}/>
+					value={this.state.zip_two}
+					className='inp'/>
 				</div>
 				<button 
 				type='submit' 
-				onClick={e=> this.submit(e)} >Submit</button>
+				onClick={e=> this.submit(e)} 
+				className='btn'
+				>Submit</button>
 			</div>
 			)
 	}

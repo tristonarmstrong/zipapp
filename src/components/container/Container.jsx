@@ -23,7 +23,7 @@ export default class Container extends React.Component {
 					// loop through the cities
 					data.forEach( ( city, j ) => {
 						// find a match and set city
-						if ( city.Zipcode == zips[ i ] ) {
+						if ( city.Zipcode === zips[ i ] ) {
 							this.setCity( city, i )
 						}
 					} )
