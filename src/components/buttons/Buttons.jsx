@@ -29,12 +29,14 @@ export default class Buttons extends React.Component{
 					name='zip_one' 
 					type='text' 
 					placeholder='zip one' 
-					onChange={(e) => this.handleChanges(e)}/>
+					onChange={(e) => this.handleChanges(e)}
+					value={this.state.zip_one}/>
 					<input 
 					name='zip_two' 
 					type='text' 
 					placeholder='zip two' 
-					onChange={(e) => this.handleChanges(e)}/>
+					onChange={(e) => this.handleChanges(e)}
+					value={this.state.zip_two}/>
 				</div>
 				<button 
 				type='submit' 

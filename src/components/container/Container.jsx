@@ -6,33 +6,29 @@ export default class Container extends React.Component{
 	constructor(){
 		super()
 		this.state = {
-			city0: {},
-			city1: {}
+			city0: null,
+			city1: null
 		}
 	}
 
+	// receive the zips from the inputs and find their cities
 	getZips = (zips) => {
-		let zipLists = []
 		zips.forEach((zip, i) => {
 			fetch(`/data/data${zip[0]}.json`)
 			.then(res => res.json())
 			.then(data => {
-				zipLists.push(data)
-
-				zipLists.forEach((list, i) => {
-					list.forEach(city => {
-						if(city.Zipcode == zips[i]){
-							this.setCity(city, i)
-						}
-					})
+				data.forEach((city, j) => {
+					if(city.Zipcode == zips[i]){
+						this.setCity(city, i)
+					}
 				})
 			})
 			.catch(err => `Looks like theres an error: ${err}`)
 		})
 	}
 
-
-	setCity(city, i){
+	// sets cities in state
+	setCity = (city, i) => {
 		this.setState({
 			[`city${i}`]: {
 				City: city.City,
@@ -48,7 +44,7 @@ export default class Container extends React.Component{
 		console.log(this.state)
 		return(
 				<div>
-					<Display/>
+					<Display city0={this.state.city0} city1={this.state.city1}/>
 					<Buttons getZips={this.getZips}/>
 				</div>
 			)
