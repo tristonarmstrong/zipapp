@@ -2,16 +2,43 @@ import React from 'react'
 
 export default class Buttons extends React.Component{
 
+	constructor(){
+		super()
+		this.state = {
+			zip_one: '',
+			zip_two: ''
+		}
+	}
+
+	handleChanges = (e) => {
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
+	submit = (e) => {
+		e.preventDefault()
+		this.props.getZips([this.state.zip_one, this.state.zip_two])
+	}
+
 	render(){
 		return(
 			<div>
-				<label target='format'>Format</label>
-				<input type='radio' id='format' label='button'/>
 				<div>
-					<input type='text' placeholder='zip 1'/>
-					<input type = 'text' placeholder='zip 2'/>
+					<input 
+					name='zip_one' 
+					type='text' 
+					placeholder='zip one' 
+					onChange={(e) => this.handleChanges(e)}/>
+					<input 
+					name='zip_two' 
+					type='text' 
+					placeholder='zip two' 
+					onChange={(e) => this.handleChanges(e)}/>
 				</div>
-				<button type='submit'>Submit</button>
+				<button 
+				type='submit' 
+				onClick={e=> this.submit(e)} >Submit</button>
 			</div>
 			)
 	}
