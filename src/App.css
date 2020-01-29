@@ -2,3 +2,9 @@
   background-color: #c3cfd9;
   height: 100%;
 }
+@media (max-width: 500px) {
+	#app{
+		width: 100vw;
+		height: 100vh;
+	}
+}
