@@ -17,7 +17,7 @@ export default class Container extends React.Component {
 		// loop through both zips
 		zips.forEach( ( zip, i ) => {
 			// fetch corosponding data file for each zip
-			fetch( `/data/data${zip[0]}.json` )
+			fetch( `./data/data${zip[0]}.json` )
 				.then( res => res.json() )
 				.then( data => {
 					// loop through the cities
