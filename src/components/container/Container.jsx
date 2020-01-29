@@ -22,22 +22,27 @@ export default class Container extends React.Component{
 				zipLists.forEach((list, i) => {
 					list.forEach(city => {
 						if(city.Zipcode == zips[i]){
-							this.setState({
-								[`city${i}`]: {
-									City: city.City,
-									Zipcode: city.Zipcode,
-									Lat: city.Lat,
-									Long: city.Long
-								}
-							})
+							this.setCity(city, i)
 						}
 					})
 				})
 			})
 			.catch(err => `Looks like theres an error: ${err}`)
 		})
-		
 	}
+
+
+	setCity(city, i){
+		this.setState({
+			[`city${i}`]: {
+				City: city.City,
+				Zipcode: city.Zipcode,
+				Lat: city.Lat,
+				Long: city.Long
+				}
+			})
+		}
+
 
 	render(){
 		console.log(this.state)
