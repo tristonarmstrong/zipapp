@@ -64,7 +64,7 @@ export default class Display extends React.Component{
 					this.props.city0 && this.props.city1 && 
 					<div>
 					<h1>{`${this.state.distance.toFixed(2)}mi`}</h1>
-					<h3>{`Zips ${this.props.city0.Zipcode} and ${this.props.city1.Zipcode} are ${this.state.distance.toFixed(2)}mi apart`}</h3>
+					<h3>{`${this.props.city0.City} and ${this.props.city1.City} are ${this.state.distance.toFixed(2)}mi apart`}</h3>
 					</div>
 				}
 
