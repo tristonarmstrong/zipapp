@@ -19,3 +19,9 @@ html{
 	height: 100%;
 	overflow: hidden;
 }
+@media(max-width: 500px){
+  html{
+    overflow-y: scroll;
+    background-color: #c3cfd9;
+  }
+}
