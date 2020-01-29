@@ -1,0 +1,24 @@
+.inp{
+	border: none !important;
+	background-color: none;
+	text-align: center;
+	width: 200px;
+	height: 30px;
+    border-radius: 4px;
+}
+.inp_cont{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+}
+.btn{
+	border-radius: 4px;
+    border: none;
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    background-color: #1aae9f;
+}
+.btn:hover{
+	background-color: #149a8d;
+}
