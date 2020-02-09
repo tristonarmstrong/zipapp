@@ -2,6 +2,7 @@ import React from 'react'
 import Buttons from '../buttons/Buttons'
 import Display from '../display/Display'
 import ErrorBanner from '../error/ErrorBanner'
+import GMap from '../google\ map/Map'
 import './index.css'
 
 export default class Container extends React.Component {
@@ -13,6 +14,7 @@ export default class Container extends React.Component {
 			invalid: false
 		}
 	}
+
 
 	// receive the zips from the inputs and find their cities
 	getZips = ( zips ) => {
@@ -55,24 +57,35 @@ export default class Container extends React.Component {
 
 			}
 		} )
-		console.log(this.state.invalid)
 	}
 
 	render() {
 		return ( 
 			<div>
 				<div className='container'>
-					<div className='color'>
-						<Display city0={this.state.city0}
-						 		city1={this.state.city1}/> 
+					<div>
+						<div className='color'>
+							<Display city0={this.state.city0}
+						 			city1={this.state.city1}/> 
+						</div>
+						<Buttons getZips={this.getZips}/>
 					</div>
-					<Buttons getZips={this.getZips}/>
-
-					{this.state.invalid &&
+					<div id='map'>
+						{this.state.city0 && this.state.city1 && 
+							<GMap 
+						center={{lat: this.state.city0 ? this.state.city0.Lat : 0, lng: this.state.city0 ? this.state.city0.Long : 0}} 
+						zoom={11}
+						coords={[
+							{lat: this.state.city0.Lat, lng: this.state.city1.Long},
+							{lat: this.state.city1.Lat, lng: this.state.city1.Long}
+								]}/>}
+					</div>
+				</div>
+				{/*shows an error if a zip is invalid*/}
+				{this.state.invalid &&
 					<div >
 						<ErrorBanner error={2}/>
 					</div>}
-				</div>
 			</div>
 			)
 	}

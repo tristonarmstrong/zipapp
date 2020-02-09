@@ -8,3 +8,19 @@
 		height: 100vh;
 	}
 }
+#nav{
+	background-color: #dfe6ed;
+	text-align: center;
+	padding: 10px 0;
+}
+#nav>h2{
+	margin: 0;
+	font-weight: bolder;
+	font-size: xx-large;
+}
+#app_desc{
+	padding: 2px 20%;
+    font-size: x-small;
+    color: #2c2c2c;
+    text-align: center;
+}
